@@ -2,6 +2,7 @@ section .text
 global  _ft_strlen
 
 _ft_strlen:
+    push rdi
     xor rax,rax
     jmp lo
 
@@ -12,4 +13,5 @@ lo:
     loop lo
 
 return:
+    pop rdi
     ret

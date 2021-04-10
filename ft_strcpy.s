@@ -2,8 +2,9 @@ global _ft_strcpy
 section .text
 
 _ft_strcpy:
-    xor rax,rax
+    mov rax,0
     push rdi
+    push rsi
     cmp byte[rsi],0
     je return1
     jmp lo
@@ -17,12 +18,15 @@ lo:
     loop lo
 
 return1:
+    mov rax,rdi
+    mov byte[rax],0
+    pop rsi
     pop rdi
-    mov rax,0
     ret
 
 return2:
     mov byte[rdi + rax],0
     mov rax,rdi
+    pop rsi
     pop rdi
     ret
